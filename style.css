@@ -1,0 +1,15 @@
+body {
+    background-color: #fff9e6; /* pastel yellow */
+    color: #4b3869; /* deep pastel purple */
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .pastel-purple {
+    background-color: #e6ccff !important;
+  }
+  
+  footer {
+    color: #4b3869;
+  }
+  
+  
