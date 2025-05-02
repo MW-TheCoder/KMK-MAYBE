@@ -1,54 +1,57 @@
-<body style="background-color: #fff8dc;">
-  <!-- Bootstrap Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e6e6fa;">
-    <a class="navbar-brand" href="index.html">
-      <img src="logo.png" alt="KMK Logo" style="width: 40px; height: 40px; border-radius: 50%;">
-    </a>
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="product.html">Product</a></li>
-        <li class="nav-item"><a class="nav-link" href="customization.html">Customization</a></li>
-        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
-      </ul>
-    </div>
-  </nav>
+This includes correct pricing:
+•	Heart-shaped box: $10
+•	Square box: $8
+•	Circle box: $5
+•	Medium size: +$3, Large: +$5, X-Large: +$7
+•	$1 per color
+<!-- ... same head/nav as other pages ... -->
 
-  <!-- Main Content -->
-  <div class="container mt-4">
-    <div class="row">
-      <!-- Image Column -->
-      <div class="col-md-6 text-center">
-        <img src="custom.png" alt="Customize Product" class="img-fluid" style="border-radius: 10px;">
-      </div>
+<form id="customization-form">
+  <label for="productType">Select Box Type</label>
+  <select class="form-control" id="productType" onchange="updatePrice()">
+    <option value="heart">Heart-shaped box</option>
+    <option value="square">Square box</option>
+    <option value="circle">Circle box</option>
+  </select>
 
-      <!-- Form Column -->
-      <div class="col-md-6">
-        <h2>Customize Your Memory</h2>
-        <form>
-          <div class="form-group">
-            <label for="productType">Select Product Type</label>
-            <select class="form-control" id="productType">
-              <option>Polaroid Frame</option>
-              <option>Scrapbook Page</option>
-              <option>Digital Collage</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="colors">Preferred Colors</label>
-            <input type="text" class="form-control" id="colors" placeholder="e.g. pastel pink, mint green">
-          </div>
-          <div class="form-group">
-            <label for="photoUpload">Upload Photo</label>
-            <input type="file" class="form-control-file" id="photoUpload">
-          </div>
-          <div class="form-group">
-            <label for="message">Personal Message</label>
-            <textarea class="form-control" id="message" rows="3" placeholder="Type your message here..."></textarea>
-          </div>
-          <button type="submit" class="btn btn-outline-secondary">Submit Customization</button>
-        </form>
-      </div>
-    </div>
-  </div>
+  <label for="size-options">Choose Size</label>
+  <select class="form-select" id="size-options" onchange="updatePrice()">
+    <option value="small">Small</option>
+    <option value="medium">Medium</option>
+    <option value="large">Large</option>
+    <option value="x-large">X-Large</option>
+  </select>
+
+  <label for="color-options">Choose Color(s)</label>
+  <input type="text" class="form-control" id="color-options" onchange="updatePrice()" placeholder="e.g. pink, purple">
+
+  <h3 id="total-price">Total: $0.00</h3>
+  <button type="submit" class="btn btn-custom">Add to Cart</button>
+</form>
+
+<script>
+  function updatePrice() {
+    let basePrice = 0;
+
+    const box = document.getElementById("productType").value;
+    const size = document.getElementById("size-options").value;
+    const colorCount = document.getElementById("color-options").value.split(',').filter(c => c.trim()).length;
+
+    if (box === "heart") basePrice += 10;
+    if (box === "square") basePrice += 8;
+    if (box === "circle") basePrice += 5;
+
+    if (size === "medium") basePrice += 3;
+    if (size === "large") basePrice += 5;
+    if (size === "x-large") basePrice += 7;
+
+    basePrice += colorCount * 1;
+
+    document.getElementById("total-price").innerText = `Total: $${basePrice.toFixed(2)}`;
+  }
+
+  document.getElementById("customization-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    alert("Your customization has been added to the cart!");
+  });
+</script>

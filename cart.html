@@ -1,37 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>KMK - Cart</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
-  <link rel="stylesheet" href="style.css"/>
+  <title>Cart - Keeping Memories Kute</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #fffafc;
+      font-family: 'Segoe UI', sans-serif;
+    }
+  </style>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light pastel-purple">
-    <a class="navbar-brand" href="#"><img src="logo.png" alt="KMK Logo" class="rounded-circle" width="50"> KMK</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="product.html">Product</a></li>
-        <li class="nav-item"><a class="nav-link" href="customization.html">Customization</a></li>
-        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-        <li class="nav-item active"><a class="nav-link" href="cart.html">Cart</a></li>
-      </ul>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">
+        <img src="" alt="KMK Logo" style="width: 40px; height: 40px; border-radius: 50%;">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="product.html">Product</a></li>
+          <li class="nav-item"><a class="nav-link" href="customization.html">Customization</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
+        </ul>
+      </div>
     </div>
   </nav>
 
-  <div class="container text-center mt-5">
-    <h2>Your Cart</h2>
-    <p>Your favorite items will appear here. Customize and checkout when ready!</p>
-  </div>
+  <!-- CART SECTION -->
+  <section class="container py-5">
+    <h1 class="text-center">Your Cart</h1>
+    <div id="cart-items">
+      <!-- Example Cart Items -->
+      <div class="row">
+        <div class="col-6">Polaroid Memory Flower (Rose - Heart-shaped box)</div>
+        <div class="col-3">Size: Medium</div>
+        <div class="col-3">$22.89</div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-6">Polaroid Memory Flower (Tulip - Square box)</div>
+        <div class="col-3">Size: Large</div>
+        <div class="col-3">$26.89</div>
+      </div>
+    </div>
+    <hr>
+    <div class="text-end">
+      <h3>Total: $49.78</h3>
+      <button class="btn btn-success">Proceed to Checkout</button>
+    </div>
+  </section>
 
-  <footer class="text-center mt-5 p-3 pastel-purple">
-    <p>&copy; 2025 KMK - Keeping Memories Kute</p>
+  <!-- FOOTER -->
+  <footer class="text-center py-4 bg-white mt-5 border-top">
+    <p class="mb-0">© 2025 Keeping Memories Kute</p>
   </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
 
